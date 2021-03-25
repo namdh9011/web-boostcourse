@@ -48,7 +48,7 @@
 - 인터넷 상의 자원의 위치
 - 특정 웹 서버의 특정 파일에 접근하기 위한 경로 혹은 주소
 
-[![img](https://cphinf.pstatic.net/mooc/20180119_25/1516354290022wUY3x_PNG/http_-_.PNG?type=w760)](https://www.boostcourse.org/web316/lecture/16661?isDesc=false#)
+![2-1](https://github.com/namdh9011/web-boostcourse/blob/master/theory/1_%EC%9B%B9_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EA%B8%B0%EC%B4%88/1_Web%EA%B0%9C%EB%B0%9C%EC%9D%98_%EC%9D%B4%ED%95%B4_FE_BE/image/2_2_HTTP.png)
 
 - **HTTP (Hypertext Transfer Protocol)**
 
