@@ -51,7 +51,7 @@ html태그는 레이아웃을 할 때도 그 의미에 맞는 것을 찾아 사�
 
 지금 언급된 태그들은 예를 들어 아래와 같은 화면으로 구성됩니다.
 
-! [2-2] (https://github.com/namdh9011/web-boostcourse/blob/master/theory/1_%EC%9B%B9_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EA%B8%B0%EC%B4%88/2_HTML_FE/image/2_2_layout.jpg)
+![2-2](https://github.com/namdh9011/web-boostcourse/blob/master/theory/1_%EC%9B%B9_%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D_%EA%B8%B0%EC%B4%88/2_HTML_FE/image/2_2_layout.jpg)
 
 - **HTML5 layout tag**
 
