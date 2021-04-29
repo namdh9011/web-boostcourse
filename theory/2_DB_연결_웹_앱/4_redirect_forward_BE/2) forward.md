@@ -40,9 +40,9 @@ WAS의 서블릿이나 JSP가 요청을 받은 후 그 요청을 처리하다가
 
 **실습**
 
-firstweb>src>examples>
+firstweb>src>examples>FrontServlet.java
 
-![2_1](https://github.com/namdh9011/web-boostcourse/blob/master/theory/2_DB_%EC%97%B0%EA%B2%B0_%EC%9B%B9_%EC%95%B1/4_redirect_forward_BE/image/2_1.png)
+firstweb>src>examples>NextServlet.java
 
 
 
@@ -51,6 +51,8 @@ firstweb>src>examples>
 redirect는 주소값이 변하지만 forward는 주소값이 변하지 않는다는 것 기억.
 
 
+
+![2_1](https://github.com/namdh9011/web-boostcourse/blob/master/theory/2_DB_%EC%97%B0%EA%B2%B0_%EC%9B%B9_%EC%95%B1/4_redirect_forward_BE/image/2_1.png)
 
 - **forward**
 
