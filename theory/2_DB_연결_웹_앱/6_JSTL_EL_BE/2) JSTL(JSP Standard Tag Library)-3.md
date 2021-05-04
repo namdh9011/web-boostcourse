@@ -1,4 +1,4 @@
-# 2) JSTL(JSP Standard Tag Library)-2
+# 2) JSTL(JSP Standard Tag Library)-3
 
 **들어가기 전에**
 
@@ -41,74 +41,23 @@ JSTL을 이용하면 태그형식으로 조건문, 반복문 등을 사용할 �
 ------
 
 **학습하기**
-
 **실습**
 
-- firstweb>Webcontent>jsp>jstl02.jsp
+- firstweb>Webcontent>jsp>jstl04.jsp
+- firstweb>Webcontent>jsp>jstl05.jsp
+- firstweb>Webcontent>jsp>jstlValue.jsp
 
+**코어 태그: 흐름제어 태그 - forEach**
 
+![2_9](https://github.com/namdh9011/web-boostcourse/blob/master/theory/2_DB_%EC%97%B0%EA%B2%B0_%EC%9B%B9_%EC%95%B1/6_JSTL_EL_BE/image/2_9.png)
 
-**코어태그: 변수 지원 태그 - 프로퍼티, 맵의 처리**
-
-
-
-
-
-![2_6](https://github.com/namdh9011/web-boostcourse/blob/master/theory/2_DB_%EC%97%B0%EA%B2%B0_%EC%9B%B9_%EC%95%B1/6_JSTL_EL_BE/image/2_6.png)
-
-- **변수 지원 태그**
-
-**코어 태그: 흐름제어 태그**
-
-![2_7](https://github.com/namdh9011/web-boostcourse/blob/master/theory/2_DB_%EC%97%B0%EA%B2%B0_%EC%9B%B9_%EC%95%B1/6_JSTL_EL_BE/image/2_7.png)
-
-- **흐름제어태그 if**
+- **흐름제어태그 forEach**
 
 **실습코드**
 
-jstl02.jsp
+jstl04.jsp
 
-if의 활용
-
-```jsp
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
-<%
-request.setAttribute("n", 10);
-%>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
-<c:if test="${n == 0}">
-n은 과 0과 같습니다.
-</c:if>
-
-<c:if test="${n == 10}">
-n은 과 10과 같습니다.
-</c:if>
-</body>
-</html>
-```
-
-
-
-**코어 태그: 흐름제어 태그 - choose**
-
-![2_8](https://github.com/namdh9011/web-boostcourse/blob/master/theory/2_DB_%EC%97%B0%EA%B2%B0_%EC%9B%B9_%EC%95%B1/6_JSTL_EL_BE/image/2_8.png)
-
-- **흐름제어태그 choose**
-
-**실습코드**
-
-jstl03.jsp
-
-switch의 활용
+forEach의 활용
 
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -116,7 +65,11 @@ switch의 활용
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <%@ page import="java.util.*" %>
 <%
-    request.setAttribute("score", 83);
+    List<String> list = new ArrayList<>();
+    list.add("hello");
+    list.add("world");
+    list.add("!!!");
+    request.setAttribute("list", list);
 %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -126,26 +79,58 @@ switch의 활용
 <title>Insert title here</title>
 </head>
 <body>
-<c:choose>
-    <c:when test="${score >=90 }">
-    A학점입니다.
-    </c:when>
-    <c:when test="${score >=80 }">
-    B학점입니다.
-    </c:when>
-    <c:when test="${score >=70 }">
-    C학점입니다.
-    </c:when>
-    <c:when test="${score >=60 }">
-    D학점입니다.
-    </c:when>
-    <c:otherwise>
-    F학점입니다.
-    </c:otherwise>            
-</c:choose>
+<c:forEach items="${list}" var="item">
+${item } <br>
+</c:forEach>
 </body>
 </html>
 ```
+
+
+
+**코어 태그: 흐름제어태그 - import**
+
+![2_10](https://github.com/namdh9011/web-boostcourse/blob/master/theory/2_DB_%EC%97%B0%EA%B2%B0_%EC%9B%B9_%EC%95%B1/6_JSTL_EL_BE/image/2_10.png)
+
+- **흐름제어태그 import**
+
+**실습코드**
+
+jstlValue.jsp
+
+import의 활용
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+Kang kyungmi
+```
+
+jstl05.jsp
+
+import의 활용
+
+```jsp
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ page import="java.util.*" %>
+<c:import url="http://localhost:8080/webapp/jstlValue.jsp" var="urlValue" scope="request"></c:import>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+읽어들인 값 : ${urlValue}
+</body>
+</html>
+```
+
+**
+**
 
 ------
 
