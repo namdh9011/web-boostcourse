@@ -64,7 +64,7 @@ DBMS에게 명령을 내릴 때도 특별한 명령이 필요합니다.
 
 MySQL 관리자 계정인 root로 데이터베이스 관리 시스템에 접속하겠다는 것입니다.
 
-```markup
+```mysql
 mysql –uroot  -p
 ```
 
@@ -80,13 +80,13 @@ MySQL DBMS에 접속하면 “mysql>” 프롬프트가 보입니다.
 
 관리자 계정으로 MySQL에 접속했다면, 다음과 같은 명령으로 데이터베이스를 생성합니다.
 
-```markup
+```mysql
  mysql> create database DB이름;
 ```
 
 우리는 다음과 같은 명령을 실행하여 DB이름을 “connectdb＂로 생성하도록 하겠습니다.
 
-```markup
+```mysql
 mysql> create database connectdb;
 ```
 
@@ -104,7 +104,7 @@ mysql> create database connectdb;
 - flush privileges는 DBMS에게 적용을 하라는 의미입니다.
 - 해당 명령을 반드시 실행해줘야 합니다.
 
-```markup
+```mysql
 grant all privileges on db이름.* to 계정이름@'%' identified by ＇암호’;
 grant all privileges on db이름.* to 계정이름@'localhost' identified by ＇암호’;
 flush privileges;
@@ -112,13 +112,23 @@ flush privileges;
 
 - 사용자 계정이름은 'connectuser', 암호는 'connect123!@#', 해당 사용자가 사용하는 데이터베이스는 'connectdb'로 계정을 생성하려면 다음과 같이 명령을 수행합니다.
 
-```markup
+```mysql
 grant all privileges on connectdb.* to connectuser@'%' identified by 'connect123!@#';
 
 grant all privileges on connectdb.* to connectuser@'localhost' identified by 'connect123!@#';
 
 flush privileges;
 ```
+**노트**
+- MySQL 8.0버전의 경우
+```mysql
+create user 'connectuser'@'localhost' identified by 'connect123!@#';
+create user 'connectuser'@'%' identified by 'connect123!@#';
+grant all privileges on connectdb.* to 'connectuser'@'localhost';
+grant all privileges on connectdb.* to 'connectuser'@'%';
+flush privileges;
+```
+
 
 ![1_3](https://github.com/namdh9011/web-boostcourse/blob/master/theory/2_DB_%EC%97%B0%EA%B2%B0_%EC%9B%B9_%EC%95%B1/8_SQL_BE/image/1_3.png)
 
@@ -128,13 +138,13 @@ flush privileges;
 
 아래와 같이 명령을 실행하여 원하는 데이터베이스에 접속할 수 있습니다.
 
-```markup
+```mysql
 mysql –h호스트명 –uDB계정명 –p 데이터베이스이름
 ```
 
 db이름이 connectdb, db계정이 connectuser, 암호가 connect123!@# 일 경우 콘솔창에서 다음과 같이 입력합니다.
 
-```markup
+```mysql
 mysql –h127.0.0.1 –uconnectuser –p connectdb [enter]
 ```
 
@@ -146,7 +156,7 @@ mysql –h127.0.0.1 –uconnectuser –p connectdb [enter]
 
 프롬프트에서 quit혹은 exit라고 입력합니다.
 
-```markup
+```mysql
 mysql> QUIT
 mysql> exit
 ```
@@ -157,7 +167,7 @@ mysql> exit
 
 **MySQL 버전과 현재 날짜 구하기**
 
-```markup
+```mysql
 mysql> SELECT VERSION(), CURRENT_DATE;
 +-----------+--------------+
 | VERSION() | CURRENT_DATE |
@@ -185,7 +195,7 @@ MySQL은 쿼리에 해당하는 결과의 전체 row를 출력하고 마지막�
 
 다음 쿼리들은 모두 같습니다.
 
-```markup
+```mysql
 mysql> SELECT VERSION(), CURRENT_DATE;
 mysql> select version(), current_date;
 mysql> SeLeCt vErSiOn(), current_DATE;
@@ -197,7 +207,7 @@ mysql> SeLeCt vErSiOn(), current_DATE;
 
  함수 및 수식 사용 예제
 
-```markup
+```mysql
 mysql> SELECT SIN(PI()/4), (4+1)*5;
 +-------------+---------+
 | SIN(PI()/4) | (4+1)*5 |
@@ -212,7 +222,7 @@ mysql> SELECT SIN(PI()/4), (4+1)*5;
 
 각 문장에 semicolon(;)만 붙혀 주면 됩니다.
 
-```markup
+```mysql
 mysql> SELECT VERSION(); SELECT NOW();
 +--------------+
 | VERSION()    |
@@ -233,7 +243,7 @@ mysql> SELECT VERSION(); SELECT NOW();
 
 MySQL은 문장의 끝을 라인으로 구분하는 것이 아니라 semicolon(;)으로 구분하기 때문에 여러 줄에 거쳐 문장을 쓰는 것도 가능합니다.
 
-```markup
+```mysql
 mysql> SELECT
     -> USER()
     -> ,
@@ -251,7 +261,7 @@ mysql> SELECT
 
 긴 쿼리를 작성하다가 중간에 취소해야 하는 경우에는 즉시 \c를 붙혀주면 됩니다.
 
-```markup
+```mysql
 mysql> SELECT
 
     -> USER()
@@ -269,7 +279,7 @@ mysql>
 
 현재 서버에 존재하는 데이터베이스를 찾아보기 위해서 SHOW statement을 사용합니다.
 
-```markup
+```mysql
 mysql> show databases;
 +-----------------------+
 | Database               |
@@ -288,7 +298,7 @@ mysql> show databases;
 
 Database을 선택하기 위해, “use” command 사용합니다.
 
-```markup
+```mysql
 mysql> use mydb;
 ```
 
