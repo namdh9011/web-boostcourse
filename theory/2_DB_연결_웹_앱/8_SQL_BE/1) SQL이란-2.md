@@ -71,7 +71,7 @@ DBMS에게 명령을 내릴 때도 특별한 명령이 필요합니다.
 
 Database를 선택 후, Database의 전체 테이블 목록을 출력합니다.
 
-```markup
+```mysql
 mysql> show tables;
 
 Empty set (0.02 sec)
@@ -89,19 +89,19 @@ examples.sql을 다운로드 합니다. [링크 바로가기](https://github.com
 
 명령을 수행한 후 암호를 입력합니다.
 
-```markup
+```mysql
 mysql   -uconnectuser  -p  connectdb   <  examples.sql
 ```
 
 examples.sql에는 연습을 위한 테이블 생성문과 해당 테이블에 값을 저장하는 입력문이 존재합니다.
 
-```markup
+```mysql
 mysql –uconnectuser -p  connectdb
 ```
 
 위의 명령으로 connectdb에 접속한 후 다음과 같이 명령을 수행합니다.
 
-```markup
+```mysql
 mysql> show tables
 ```
 
@@ -119,7 +119,7 @@ table 구조를 확인하기 위해, DESCRIBE 명령을 사용할 수 있습니�
 
 EMPLOYEE테이블의 구조를 확인해 봅시다.
 
-```markup
+```mysql
 mysql> desc EMPLOYEE;
 ```
 
