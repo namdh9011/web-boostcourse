@@ -1,0 +1,64 @@
+package kr.or.connect.jdbcexam.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import kr.or.connect.jdbcexam.dto.Role;
+
+public class RoleDao {
+	private static String dburl = "jdbc:mysql://localhost:3306/connectdb?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+	private static String dbUser = "connectuser";
+	private static String dbpassword = "connect123!@#";
+
+	public Role getRole(Integer roleId) {
+		Role role = null;
+		Connection conn = null;	//연결을 맺을 객체
+		PreparedStatement ps = null;	//명령을 선언할 객체
+		ResultSet rs = null;//결과 값을 담아낼 객체
+		
+		try {			//예외처리
+			Class.forName("com.mysql.jdbc.Driver");	//드라이버 로딩
+			conn = DriverManager.getConnection(dburl, dbUser, dbpassword);	//connection 객체 얻어오기
+			String sql = "select description, role_id from role where role_id = ?";
+			ps = conn.prepareStatement(sql);
+			ps.setInt(1, roleId);
+			rs = ps.executeQuery();
+			
+			if(rs.next()) {
+				String description = rs.getString(1);			//컬럼의 순서나
+				int id = rs.getInt("role_id");		//컬럼의 이름으로 불러올 수 있다.
+				role = new Role(id, description);
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {		//반드시 수행되야 하는 구절 닫아줄 것.
+			if(rs!=null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if(ps!=null) {
+				try {
+					ps.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if(conn!=null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
+		}
+		
+		return role;
+	}
+}
