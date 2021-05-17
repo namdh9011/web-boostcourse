@@ -37,6 +37,12 @@
 
 **학습하기**
 
+**노트**
+
+- api패키지에 RolesByIdServlet 생성 -> Url Mapping 는 /roles/*로 해줌
+- 실행하면 서버에러가 나는데 *부분을 100으로 바꿔주면 100번사원의 정보가 나옴
+- 서블릿으로 api를 구현했지만 너무 번거롭고 불편하기 때문에 Spring Framework를 써서 편리하게 api를 구현한다.
+
 **실습코드**
 
 RoleByIdServlet.java
