@@ -44,6 +44,23 @@
 
 - **Spring MVC 기본 동작 흐름**
 
+
+
+
+
+**요청 처리를 위해 사용되는 컴포넌트**
+
+- DispatcherServlet
+  - HandlerMapping
+  - HanderAdapter
+  - MuiltpartResolver
+  - LocaleResolver
+  - ThemeResolver
+  - HanderExceptionResolver
+  - RequestToViewNameTranslator
+  - ViewResolver
+  - FlashMapManager
+
 ------
 
 **참고 자료**
