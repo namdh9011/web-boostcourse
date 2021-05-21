@@ -35,6 +35,12 @@
 
 **학습하기**
 
+**노트**
+
+- maven Project - quickstart - daoexam 생성
+- pom.xml에 spring, mysql, datasource 디펜던씨 추가
+- config 패키지 - ApplicationConfig.java 추가 
+
 
 
 **Spring JDBC를 이용한 DAO작성 실습**
