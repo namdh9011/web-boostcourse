@@ -36,6 +36,19 @@
 
 **학습하기**
 
+**노트**
+
+- project - maven project 생성 - quickstart - group id artifact id 설정 - diexam01
+
+- pom.xml 플러그인 추가
+- UserBean.java 파일 생성
+- pom.xml에 properties에 버전 상수 추가해줌.
+- pom.xam에 스프링 디펜던씨 추가
+- resources폴더 생성 -> applicationConext.xml 파일 생성
+- ApplicationContextExam01.java 파일 생성
+
+
+
 **Maven으로 Java프로젝트 만들기**
 
 ![3_1](https://github.com/namdh9011/web-boostcourse/blob/master/theory/3_%EC%9B%B9_%EC%95%B1_%EA%B0%9C%EB%B0%9C_%EC%98%88%EC%95%BD%EC%84%9C%EB%B9%84%EC%8A%A41/7_Spring_Core_BE/image/3_1.png)
