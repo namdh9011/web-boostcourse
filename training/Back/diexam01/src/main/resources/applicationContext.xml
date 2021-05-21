@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--XML로 스프링 설정 파일을 만들것이다.-->
+<!--스프링 컨테이너한테 내가 사용할 객체를 대신 생성하게 시킨다.-->
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="userBean" class="kr.or.connect.diexam01.UserBean"></bean>
+	<!-- kr.or.connect.diexam01.UserBean userBean = new kr.or.connect.diexam01.UserBean() 해준 것과 같은 효과 -->
+	
+	<bean id="e" class="kr.or.connect.diexam01.Engine"/>
+	<bean id="c" class="kr.or.connect.diexam01.Car">
+		<!-- getter setter 메서드 같은 것을 property라고 한다. -->
+		<property name="engine" ref="e"></property>
+	</bean>
+</beans>
