@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app>
+
+	<display-name>Spring JavaConfig Sample</display-name>
+	<context-param>
+		<param-name>contextClass</param-name>
+		<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+		</param-value>
+	</context-param>
+	
+	<!-- 컨텍스트 로딩 될때 ApplicationConfig를 이용할꺼니까 이름 맞춰줘야된다. -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>kr.or.connect.guestbook.config.ApplicationConfig
+		</param-value>
+	</context-param>
+	
+	<!-- 설정을 3개로 나눠둔 것을 다 읽어들이기 위해서 listener해준다. context가 로딩되는 이벤트가 실행되면 이걸해라 -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+
+	<!-- DispatcherServlet이 받아서 프론트 서블릿으로 등록 
+	AnnotationConfigWebApplicationContext이 컨텍스트를 이용할 것이다. 
+	WebMvcContextConfiguration이 설정을 참고해라  -->
+	<servlet>
+		<servlet-name>mvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextClass</param-name>
+			<param-value>org.springframework.web.context.support.AnnotationConfigWebApplicationContext
+			</param-value>
+		</init-param>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>kr.or.connect.guestbook.config.WebMvcContextConfiguration
+			</param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<!-- / url이 들어오면 mvc 서블릿을 실행시켜라 -->
+	<servlet-mapping>
+		<servlet-name>mvc</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<!-- 요청이 발생하거나 처리한 요청이 나갈때 걸러준다. ex) 한글 인코딩 처리 -->
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+</web-app>
