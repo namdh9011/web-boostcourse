@@ -13,3 +13,27 @@
 9. Spring JDBC를 이용하여 개발 할 수 있다. 
 10. 레이어드 아키텍쳐**(Layered Architecture)**를 이해하고 구성할 수 있다. 
 11. RestController를 이용해서 Web API를 작성할 수 있다. 
+
+
+
+**FE**
+
+파트3. 웹 어플리케이션 개발 - 프론트엔드
+
+- JavaScript의 배열과 객체를 통한 데이터 처리.
+- 다양한 DOM API 다루기
+- Ajax 그리고 Asynchronous 이해
+- CSS3 기반 애니메이션 구현
+
+
+
+**BE**
+
+파트3. 웹 어플리케이션 개발 - 백엔드
+
+- Spring Core
+- Spring JDBC
+- Spring MVC
+- 레이어디(Layered) 아키텍처
+- RestController
+
